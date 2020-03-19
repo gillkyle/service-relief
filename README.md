@@ -67,6 +67,28 @@ Find you submission form embed ID by clicking on "Grid View" at the top left of 
 
 ![Form view](./src/images/form-view.png)
 
+This will take you to the form view, which should display a submission form that was automatically created when your base was created by the template. To get this ID, you need to click the "Share Form" button, then you should see a link, copy everything after `https://airtable.com/`
+
+![Embed ID](./src/images/embed-id.png)
+
+With all 4 values copied. You are ready to set up the code portion of the site.
+
+### Code configuration
+
+You will need to copy the code from this site and deploy it to make it available to anyone visitng your page on the internet, the place that your webpage's files live is where it is hosted. The easiest way to do so is by clicking on a set up button which will help you get setup a hosting service.
+
+This is for Netlify:
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/service-relief/gatsby-starter-service-relief)
+
+And this is for Zeit Now:
+
+[![Deploy with ZEIT Now](https://zeit.co/button)](https://zeit.co/import/project?template=https://github.com/service-relief/gatsby-starter-service-relief)
+
+When you click on one of these buttons, the link will take you to the service and start you on the setup process by making 2 accounts, one on the hosting service, and one on GitHub. The hosting service will add your code to GitHub (a code storing service) for you and prompt you to create an account for it as well.
+
+<!-- TODO add images/screenshots/steps for setting up on Netlify or Zeit or Gatsby Cloud and adding environment variables to connect to Airtable -->
+
 ## 🚀 Quick start for code development
 
 1.  **Create a Gatsby site.**
@@ -147,8 +169,8 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 
 ## 💫 Deploy
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/service-relief/gatsby-starter-service-relief)
 
-[![Deploy with ZEIT Now](https://zeit.co/button)](https://zeit.co/import/project?template=https://github.com/gatsbyjs/gatsby-starter-default)
+[![Deploy with ZEIT Now](https://zeit.co/button)](https://zeit.co/import/project?template=https://github.com/service-relief/gatsby-starter-service-relief)
 
 <!-- AUTO-GENERATED-CONTENT:END -->
