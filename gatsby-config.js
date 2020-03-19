@@ -1,5 +1,5 @@
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
 })
 
 const city = process.env.CITY || `TODO City`
@@ -12,7 +12,7 @@ module.exports = {
     author: `@boborchard`,
     state,
     city,
-    airtableEmbed: `TODO` // link to documentation
+    airtableEmbed: process.env.AIRTABLE_EMBED_ID || `TODO`, // link to documentation
   },
   plugins: [
     `gatsby-plugin-postcss`,
@@ -24,10 +24,10 @@ module.exports = {
         tables: [
           {
             baseId: process.env.AIRTABLE_BASE_ID || `appKKJX2Tz4Vq6hKl`, // TODO: make fake,
-            tableName: process.env.AIRTABLE_TABLE_NAME || `tbl0agqWsFRYLgAnV` // TODO: make fake,
-          }
-        ]
-      }
+            tableName: process.env.AIRTABLE_TABLE_NAME || `tbl0agqWsFRYLgAnV`, // TODO: make fake,
+          },
+        ],
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -55,8 +55,8 @@ module.exports = {
       options: {
         fonts: [
           {
-            family: `Bungee`
-          }
+            family: `Bungee`,
+          },
         ],
       },
     },
