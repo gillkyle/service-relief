@@ -17,8 +17,8 @@ const Layout = ({ children }) => {
     query SiteTitleQuery {
       site {
         siteMetadata {
-          title,
-          city,
+          title
+          city
           state
         }
       }
@@ -41,10 +41,16 @@ const Layout = ({ children }) => {
             Gatsby
           </a>{" "}
           by{" "}
-          <a className="text-blue-600" href="https://boborchard.com">
-            Bob Orchard
+          <a className="text-blue-600" href="https://kylegill.com">
+            Kyle Gill
           </a>
-          . A work in progress.
+          . A work in progress.{" "}
+          <a
+            className="text-blue-600"
+            href="https://github.com/service-relief/gatsby-starter-service-relief"
+          >
+            Build your own for your city!
+          </a>
         </footer>
       </div>
     </>

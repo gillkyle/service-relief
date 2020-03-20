@@ -27,24 +27,22 @@ const IndexPage = ({ data }) => {
       <SEO title="Home" />
       <div className="mb-20">
         <p className="text-lg mb-8">
-          A directory of fundraisers for {data.site.siteMetadata.city} bars,
+          A directory of fundraisers for {data.site.siteMetadata.city} events,
           venues, restaurants, and service businesses that can use our help to
           support their staff during the state-mandated shutdown. A
           work-in-progress.
         </p>
         <p className="text-lg mb-8">
           Jump to:{" "}
-          {
-            categoriesArr
-              .map((category, index) => (
-                <React.Fragment>
-                  <a href={`#${categories[category]}`} className="underline">
-                    {category}
-                  </a>
-              {index + 1 === categoriesArr.length ? `` : `,`}{` `}
-                </React.Fragment>
-              ))
-          }
+          {categoriesArr.map((category, index) => (
+            <React.Fragment>
+              <a href={`#${categories[category]}`} className="underline">
+                {category}
+              </a>
+              {index + 1 === categoriesArr.length ? `` : `,`}
+              {` `}
+            </React.Fragment>
+          ))}
         </p>
         <Link
           to="/submit"
@@ -77,40 +75,38 @@ const IndexPage = ({ data }) => {
         </p>
       </div>
 
-      {
-        groups.map(group => {
-          const category = group.nodes[0].data.Category[0]
-          const slug = group.nodes[0].fields.slug
-          // TODO: normalize these categories 
-          return (
-            <div className="mb-10">
-              <h2 id={slug} className="text-xl font-bold">
-                Support {category}
-              </h2>
+      {groups.map(group => {
+        const category = group.nodes[0].data.Category[0]
+        const slug = group.nodes[0].fields.slug
+        // TODO: normalize these categories
+        return (
+          <div className="mb-10">
+            <h2 id={slug} className="text-xl font-bold">
+              Support {category}
+            </h2>
 
-              <ul className="list-disc pl-6 mt-4">
-                {
-                  group.nodes.map(node => (
-                    <li className="mb-2">
-                    <a
-                      className="underline"
-                      href={node.data.FundraiserUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {node.data.FundraiserTitle}
-                    </a>{" "}
-                    {node.data.FundraiserDescription && (<p className="mt-2 italic">
+            <ul className="list-disc pl-6 mt-4">
+              {group.nodes.map(node => (
+                <li className="mb-2">
+                  <a
+                    className="underline"
+                    href={node.data.FundraiserUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {node.data.FundraiserTitle}
+                  </a>{" "}
+                  {node.data.FundraiserDescription && (
+                    <p className="mt-2 italic">
                       {node.data.FundraiserDescription}
-                    </p>)}
-                  </li>
-                  ))
-                }
-              </ul>
-            </div>
-          )
-        })
-      }
+                    </p>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      })}
     </Layout>
   )
 }
@@ -123,20 +119,20 @@ export const pageQuery = graphql`
         state
       }
     }
-    
-    categories: allAirtable(filter: {data: {Approved: {eq: "Yes"}}}) {
-      group(field:data___Category) {
+
+    categories: allAirtable(filter: { data: { Approved: { eq: "Yes" } } }) {
+      group(field: data___Category) {
         nodes {
           fields {
             slug
           }
           data {
-          BusinessName
-          Category
-          FundraiserDescription
-          FundraiserTitle
-          FundraiserUrl
-          Approved
+            BusinessName
+            Category
+            FundraiserDescription
+            FundraiserTitle
+            FundraiserUrl
+            Approved
           }
         }
       }
